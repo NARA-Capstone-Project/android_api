@@ -54,7 +54,7 @@ if (isset($_POST['comp_id']) and
     $recipient_name  = $tech_details['name'];
     $requestor       = $cust_details['name'];
 
-    $msg_body = "Good Day! Sir/Ma'am $custodian of " . $room_name . " room requests for repair of PC $comp_name on the following date and time: \n\nDate: " . $_POST['date'] . " \nTime: " . $_POST['time'];
+    $msg_body = "Good Day! Sir/Ma'am $requestor of " . $cust_room . " room requests for repair of PC $comp_name on the following date and time: \n\nDate: " . $_POST['date'] . " \nTime: " . $_POST['time'];
 
     if (strlen($_POST['msg']) > 0) {
         $msg_body .= " \n\nMessage from the Custodian:\n" . $_POST['msg'];

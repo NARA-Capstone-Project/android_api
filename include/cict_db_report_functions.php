@@ -72,7 +72,7 @@ class cict_db_report_functions
 
         $response = array();
         $stmt     = $this->con->prepare("SELECT * from assessment_reports where (not exists (select null from request_repair where request_repair.rep_id = assessment_reports.rep_id) and not exists (select null from request_inventory where request_inventory.rep_id = assessment_reports.rep_id)) and (technician_id = ? or custodian_id = ?)ORDER BY date desc, time desc");
-        $stmt->bind_param("sss", $user_id, $user_id);
+        $stmt->bind_param("ss", $user_id, $user_id);
         $stmt->bind_result($rep_id, $room_id, $cust_id, $tech_id, $category, $date, $time, $cust_signed, $htech_signed, $admin_signed, $remarks);
         $stmt->execute();
 
@@ -120,7 +120,7 @@ class cict_db_report_functions
 
         $response = array();
         $stmt     = $this->con->prepare($query);
-        $stmt->bind_result($rep_id, $room_id, $cust_id, $tech_id, $date, $time, $cust_signed, $htech_signed, $admin_signed, $remarks);
+        $stmt->bind_result($rep_id, $room_id, $cust_id, $tech_id, $category, $date, $time, $cust_signed, $htech_signed, $admin_signed, $remarks);
         $stmt->execute();
 
         //get report

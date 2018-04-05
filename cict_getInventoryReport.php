@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $db = new cict_db_report_functions();
 
         if ($user_role == 'Admin' or $user_role == 'Main Technician') {
-            $response = $db->getInventoryReportsForHighUps(;
+            $response = $db->getInventoryReportsForHighUps();
         } else {
             $response = $db->getInventoryReports($_POST['user_id']);
 
