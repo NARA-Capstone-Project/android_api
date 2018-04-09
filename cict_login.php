@@ -31,10 +31,11 @@
 						$user_acc_data = $db->getAccount($username);
 						//account = user_id, username, password, date_created, date_expire, acc_status 
 						$user_data = $db->getUser($user_acc_data['user_id']);
-						//users = user_id, name, phone, role
+						//users = user_id,email, name, phone, role
 						//sesave sa sqlite
 						$response['error'] = false;
 						$response['user_id'] = $user_acc_data['user_id'];
+						$response['email'] = $user_data['email'];
 						$response['username'] = $user_acc_data['username'];
 						$response['name'] = $user_data['name'];
 						$response['phone'] = $user_data['phone'];
