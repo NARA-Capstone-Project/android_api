@@ -1,3 +1,4 @@
+
 <?php
 
 class cict_db_report_functions
@@ -305,7 +306,7 @@ class cict_db_report_functions
             }
         }
 
-        $stmt = $this->con->prepare("insert into assessment_reports values(?,?,?,?,?,?,?,0,0,0,?)");
+        $stmt = $this->con->prepare("INSERT into assessment_reports values(?,?,?,?,?,?,?,0,0,0,?)");
         $stmt->bind_param("iissssss", $rep_id, $room_id, $cust_id, $tech_id,$category, $date, $time, $remarks);
 
         if ($stmt->execute()) {
@@ -318,7 +319,7 @@ class cict_db_report_functions
     //rep_id    comp_id    model    processor    motherboard    monitor    ram    kboard    mouse    vga    hdd    status
     public function saveTechReportDetails($rep_id, $comp_id, $pc_no, $model, $processor, $mb, $mb_serial, $monitor, $mon_serial, $ram, $kboard, $mouse, $vga, $hdd, $status)
     {
-        $stmt = $this->con->prepare("insert into assessment_details values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt = $this->con->prepare("INSERT into assessment_details values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $stmt->bind_param("iiissssssssssss", $rep_id, $comp_id, $pc_no, $model, $processor, $mb, $mb_serial, $monitor, $mon_serial, $ram, $kboard, $mouse, $vga, $hdd, $status);
         if ($stmt->execute()) {
             return true;

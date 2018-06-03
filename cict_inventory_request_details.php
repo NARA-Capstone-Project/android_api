@@ -9,7 +9,7 @@ $response = array();
 if (isset($_POST['room_id'])) {
 
     $room_id               = $_POST['room_id'];
-    $checkInventoryRequest = $con->prepare("SELECT * FROM request_inventory WHERE room_id = ? AND req_status = 'Pending' ORDER BY date DESC, time DESC LIMIT 1");
+    $checkInventoryRequest = $con->prepare("SELECT * FROM request_inventory WHERE room_id = ? and (req_status = 'Pending' or req_status = 'Accepted') ORDER BY date DESC, time DESC LIMIT 1");
     $checkInventoryRequest->bind_param("i", $room_id);
     // $checkInventoryRequest->execute();
     // $checkInventoryRequest->store_result();

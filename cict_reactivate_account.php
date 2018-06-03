@@ -29,7 +29,7 @@
             $result = $db_user->request_account($id, $username, $password, $date_request, 'reactivate');
             if($result){
                 $response['error'] = false;
-                $response['message'] = "Request has been submitted! Please wait for the approval via SMS before logging in";
+                $response['message'] = "Request has been submitted! Please wait for the approval before logging in";
             }else{						
                 $response['error'] = true;
                 $response['message'] = "An error occured while processing your request, please try again later";

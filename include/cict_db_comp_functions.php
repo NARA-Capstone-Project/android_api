@@ -138,7 +138,6 @@ class cict_db_comp_functions
     }
     public function getComputersWithId($comp_id)
     {
-        $computers = array();
         $stmt      = $this->con->prepare("SELECT * FROM comp_details WHERE comp_id = ?");
         $stmt->bind_param("i", $comp_id);
         $stmt->execute();

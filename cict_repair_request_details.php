@@ -8,7 +8,7 @@ $response = array();
 
 if(isset($_POST['comp_id'])){
 $comp_id               = $_POST['comp_id'];
-    $checkRepairRequest = $con->prepare("SELECT * FROM request_repair WHERE comp_id = ? AND req_status = 'Pending' ORDER BY date DESC, time DESC LIMIT 1");
+    $checkRepairRequest = $con->prepare("SELECT * FROM request_repair WHERE comp_id = ? AND (req_status = 'Pending' or req_status = 'Accepted') ORDER BY date DESC, time DESC LIMIT 1");
     $checkRepairRequest->bind_param("i", $comp_id);
     // $checkInventoryRequest->execute();
     // $checkInventoryRequest->store_result();
